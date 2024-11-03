@@ -46,15 +46,15 @@ const updateConfig = (id: string, updatedConfig: Partial<Config>) => {
 </script>
 
 <template>
-  <div class="config-page">
-    <header class="header">
-      <h1>Configuration Settings</h1>
-      <button class="add-button" @click="addConfig">
+  <div class="max-w-2xl mx-auto p-8 dark:bg-gray-900">
+    <header class="flex justify-between items-center mb-8">
+      <h1 class="text-2xl font-bold text-gray-800 dark:text-white">Configuration Settings</h1>
+      <button class="bg-green-500 text-white font-medium py-2 px-4 rounded hover:bg-green-600 transition duration-200" @click="addConfig">
         Add Configuration
       </button>
     </header>
 
-    <div class="configs-container">
+    <div class="flex flex-col gap-4">
       <TransitionGroup name="list">
         <ConfigItem
           v-for="config in configs"
@@ -69,47 +69,6 @@ const updateConfig = (id: string, updatedConfig: Partial<Config>) => {
 </template>
 
 <style scoped>
-.config-page {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-}
-
-.header h1 {
-  margin: 0;
-  font-size: 1.8rem;
-  color: #2c3e50;
-}
-
-.add-button {
-  background-color: #42b883;
-  color: white;
-  border: none;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.add-button:hover {
-  background-color: #3aa876;
-}
-
-.configs-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
 .list-enter-active,
 .list-leave-active {
   transition: all 0.3s ease;
